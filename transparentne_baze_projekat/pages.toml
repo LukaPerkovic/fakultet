@@ -1,0 +1,11 @@
+[[pages]]
+path = "pages/home.py"
+name = "Pocetna"
+
+[[pages]]
+path = "./pages/dnf.py"
+name = "Normalizacija"
+
+[[pages]]
+path = "./pages/crud.py"
+name = "CRUD operacije"
