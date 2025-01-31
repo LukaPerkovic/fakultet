@@ -28,8 +28,8 @@ Pomocu ove aplikacije korisnici ce bolje razumeti:
 2. Podesite virtuelno okruzenje:
     ```sh
     python3 -m venv venv
-    source venv/bin/activate  # (Linux/Mac)
-    .\venv\Scripts\activate  # (Windows)
+    source .venv/bin/activate  # (Linux/Mac)
+    .\.venv\Scripts\activate  # (Windows)
     ```
 
 3. Instalirajte `requirements.txt`:
