@@ -1,18 +1,18 @@
-import io
 import logging
 
 from fastapi import FastAPI
-from fastapi import File
-from fastapi import UploadFile
+from pydantic import BaseModel
 
-from PIL import Image
 from transformers import pipeline
 
 
-# image_to_text("https://ankur3107.github.io/assets/images/image-captioning-example.png")
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+
+class FilePath(BaseModel):
+    path: str
+
 
 app = FastAPI()
 
@@ -21,13 +21,12 @@ model = pipeline("image-to-text", model="nlpconnect/vit-gpt2-image-captioning")
 logger.info("Model loaded succesfully!")
 
 
-@app.post("/generate/")
-async def generate(file: str):
+@app.post("/generate")
+async def generate(request: FilePath):
     logger.info("Received a generation request.")
 
-    logger.info("Image loaded successfully.")
+    logger.info(f"File path received: {request.path}")
 
-    result = model(file)
+    result = model(request.path)
     logger.info("Inference completed.")
-
     return result
