@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-ENV ENVIORNMENT="PROD"
+ENV ENVIRONMENT="PROD"
 
 RUN apt-get update && apt-get install -y \
     build-essential \
