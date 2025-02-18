@@ -1,5 +1,7 @@
 FROM python:3.10-slim
 
+ENV ENVIORNMENT="PROD"
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
