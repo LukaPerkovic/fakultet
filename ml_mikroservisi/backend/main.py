@@ -23,13 +23,8 @@ logger.info(f"Current environemnt set as: {ENV}")
 
 app = FastAPI()
 
-model_service = "model-service" if ENV == "PROD" else "localhost"
-model_port = 5000
+model_service = "model-service" if ENV == "PROD" else "localhost:5000"
 model_endpoint = "generate"
-
-frontend_service = "frontend-service" if ENV == "PROD" else "localhost"
-frontend_port = 8501
-frontend_endpoint = ""
 
 
 class FilePathRequest(BaseModel):

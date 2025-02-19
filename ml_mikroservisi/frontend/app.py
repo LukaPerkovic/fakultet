@@ -18,11 +18,10 @@ except KeyError:
 
 logger.info(f"Current environment set as: {ENV}")
 
-host = "backend-service" if ENV == "PROD" else "localhost"
-port = 7860
+host = "backend-service" if ENV == "PROD" else "localhost:7860"
 endpoint = "transform"
 
-backend_url = f"http://{host}:{port}/{endpoint}"
+backend_url = f"http://{host}/{endpoint}"
 
 st.title("Aplikacija: Titlovanje slike")
 st.write("**Ime:** Luka Perkovic")
