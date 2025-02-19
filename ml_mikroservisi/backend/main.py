@@ -25,7 +25,7 @@ app = FastAPI()
 
 model_service = "model-service" if ENV == "PROD" else "localhost:5000"
 model_endpoint = "generate"
-
+model_url = f"http://{model_service}/{model_endpoint}"
 
 class FilePathRequest(BaseModel):
     file_path: str
@@ -39,7 +39,7 @@ async def generate(request: FilePathRequest):
 
     # Forward the file path to the model service
     response = requests.post(
-        f"http://{model_service}:{model_port}/{model_endpoint}",
+        model_url,
         json={"path": file_path},
     )
 
