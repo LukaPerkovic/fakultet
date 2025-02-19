@@ -43,8 +43,6 @@ if image_url:
         with col1:
             st.image(image, caption="Loaded Image", use_container_width=True)
 
-        st.write("")
-        st.write("Obrada...")
 
         # Send the image URL to the backend service
         response = requests.post(backend_url, json={"file_path": image_url})
@@ -52,7 +50,6 @@ if image_url:
         if response.status_code == 200:
             result = response.json()
             with col2:
-                st.write("Prediction Results:")
                 st.write(result[0].get("generated_text"))
         else:
             st.write("Error: Unable to get prediction results")
