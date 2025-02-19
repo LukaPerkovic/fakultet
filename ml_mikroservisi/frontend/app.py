@@ -47,7 +47,7 @@ if image_url:
         st.write("Obrada...")
 
         # Send the image URL to the backend service
-        response = requests.post(backend_url, json={"image_url": image_url})
+        response = requests.post(backend_url, json={"file_path": image_url})
 
         if response.status_code == 200:
             result = response.json()
